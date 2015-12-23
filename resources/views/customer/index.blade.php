@@ -17,6 +17,12 @@ customers
 <th>Company name</th><th>Address</th><th>Company name</th><th>Business registration number</th><th>Website</th><th>Edit</th>
 <tr>
 	<td>FFF</td>
+	<?php 
+		foreach ($data as $row) {
+			echo $row->id;
+			echo $row->company_name;
+		}
+	?>
 </tr>
 </table>
 @stop()

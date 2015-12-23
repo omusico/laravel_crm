@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', 'CustomerController@index');
 
 Route::get('home', 'HomeController@index');
 
-Route::get('editform', 'CustomerController@editform');
+Route::get('Customeredit/{id}', 'CustomerController@editform');
 
 //Route::get('customerindex', 'CustomerController@index');
 

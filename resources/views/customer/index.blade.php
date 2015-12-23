@@ -22,7 +22,7 @@ customers
 	        <td><?php echo $row->address;?></td>
 	        <td><?php echo $row->business_registration_number;?></td>
 	        <td><?php echo $row->website;?></td>
-	        <td><a href="<?php echo 'editform'.$row->id;?>">Edit</a></td>
+	        <td><a href="<?php echo 'Customeredit/'.$row->id;?>" target="_blank">Edit</a></td>
 		</tr>			
 		<?php }?>
 

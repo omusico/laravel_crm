@@ -10,10 +10,15 @@ class CustomerController extends Controller {
 	}
 
 
-	public function editform()
+	public function editform($id)
 	{
-		//$result=DB::table('customer')->where('id',$id)->get();
-		return view('customer.editform');
+		$result=DB::table('customer')->where('id',$id)->first();
+		return view('customer.editform')->with('data',$result);
+	}
+
+	public function updatecustomer()
+	{
+		
 	}
 
 }

@@ -1,21 +1,15 @@
 @extends('layout.master')
 
 @section('pagetitle')
-Customers
+Edit customer
 @stop()
 
 @section('breadcrubms_loc')
-customers
+edit customer
 @stop
 
 @section('content')
+<form action="" method="post">
 
-<?php 
-foreach ($data as $row) {
-	echo $row->('company_name');
-	echo '</br>';			
-}
-?>
-
-</table>
+</form>
 @stop()

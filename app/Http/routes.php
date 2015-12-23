@@ -15,6 +15,8 @@ Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 
+Route::get('edit/{id}', 'CustomerController@edit');
+
 //Route::get('customerindex', 'CustomerController@index');
 
 Route::controllers([

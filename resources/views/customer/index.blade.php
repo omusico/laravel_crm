@@ -22,7 +22,7 @@ customers
 	        <td><?php echo $row->address;?></td>
 	        <td><?php echo $row->business_registration_number;?></td>
 	        <td><?php echo $row->website;?></td>
-	        <td><a href="<?php echo 'Edit'.$row->id;?>">Edit</a></td>
+	        <td><form action="{{action('CustomerController@edit')}}"><input type="submit" name="<?php echo 'edit'.$row->id;?>" value="Edit"/></form></td>
 		</tr>			
 		<?php }?>
 

@@ -10,6 +10,11 @@ class CustomerController extends Controller {
 	}
 
 
+	public function add_newcustomer()
+	{
+		return view('customer.newcustomerform');
+	}
+
 	public function editform($id)
 	{
 		$result=DB::table('customer')->where('id',$id)->first();
@@ -18,7 +23,7 @@ class CustomerController extends Controller {
 
 	public function updatecustomer()
 	{
-		
+
 	}
 
 }

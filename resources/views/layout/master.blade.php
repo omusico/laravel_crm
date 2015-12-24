@@ -212,7 +212,7 @@
                 <span class="label label-primary pull-right">3</span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> Customers</a></li>
+                <li><a href="View_customers"><i class="fa fa-circle-o"></i> Customers</a></li>
                 <li><a href="#"><i class="fa fa-circle-o"></i> Contacts</a></li>
                 <li><a href="#"><i class="fa fa-circle-o"></i> Activities</a></li>
                 

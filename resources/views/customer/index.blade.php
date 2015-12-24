@@ -9,7 +9,7 @@ customers
 @stop
 
 @section('content')
-<a href="#">Create new customer</a>
+<a href="Newcustomer">Add new customer</a>
 <br>
 <br>
 <table border="1">

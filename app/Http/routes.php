@@ -15,9 +15,12 @@ Route::get('/', 'CustomerController@index');
 
 Route::get('home', 'HomeController@index');
 
+Route::get('View_customers', 'CustomerController');
+
 Route::get('Customeredit/{id}', 'CustomerController@editform');
 
-//Route::get('customerindex', 'CustomerController@index');
+Route::get('Newcustomer', 'CustomerController@add_newcustomer');
+
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

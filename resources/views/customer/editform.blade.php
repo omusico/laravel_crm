@@ -1,5 +1,11 @@
 @extends('layout.master')
 
+@section('tree-menu')
+<li><a href="#"><i class="fa fa-circle-o"></i> Customers</a></li>
+<li><a href="#"><i class="fa fa-circle-o"></i> Contacts</a></li>
+<li><a href="#"><i class="fa fa-circle-o"></i> Activities</a></li>
+@stop()
+
 @section('pagetitle')
 Edit customer
 @stop()

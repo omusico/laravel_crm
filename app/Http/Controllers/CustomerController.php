@@ -9,7 +9,6 @@ class CustomerController extends Controller {
 		return view('customer.index')->with('data',$result);
 	}
 
-
 	public function add_newcustomer()
 	{
 		return view('customer.newcustomerform');

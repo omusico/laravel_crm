@@ -15,7 +15,7 @@ customers
 @stop
 
 @section('content')
-<a href="" target="_blank">Add new customer</a>
+<a href="Newcustomer" target="_blank">Add new customer</a>
 <br>
 <br>
 <form action="" method="">

@@ -15,12 +15,22 @@ customers
 @stop
 
 @section('content')
-<a href="Newcustomer">Add new customer</a>
+<a href="" target="_blank">Add new customer</a>
 <br>
 <br>
+<form action="" method="">
+<input type="text" name="searchbox" placeholder="Search here"/>
+<input type="submit" name="searchbtn" value="Search" class="btn btn-primary"/>
+</form>
+<br>
+<br>
+<p style="color:red;"><?php echo Session::get('message');?></p>
 <table border="1">
 <!--<input type="text" class="form-control" name="test" placeholder="Text here"/>-->
+<thead>
 <th>Company name</th><th>Address</th><th>Business registration number</th><th>Website</th><th>Edit</th>
+</thead>
+<tbody>
 <?php 
 		foreach ($data as $row) {?>
 		<tr>
@@ -30,7 +40,10 @@ customers
 	        <td><?php echo $row->website;?></td>
 	        <td><a href="<?php echo 'Customeredit/'.$row->id;?>" target="_blank">Edit</a></td>
 		</tr>			
-		<?php }?>
+		<?php }
+			echo $data->render();
+		?>
 
+</tbody>
 </table>
 @stop()

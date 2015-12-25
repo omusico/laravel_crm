@@ -19,8 +19,9 @@ Route::get('View_customers', 'CustomerController@index');
 
 Route::get('Customeredit/{id}', 'CustomerController@editform');
 
-Route::get('Newcustomer', 'CustomerController@add_newcustomer');
+Route::get('Newcustomer', 'CustomerController@load_form_newcustomer');
 
+Route::post('Add_customer', 'CustomerController@add_newcustomer');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

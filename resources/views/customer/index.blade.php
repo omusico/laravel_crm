@@ -2,7 +2,7 @@
 
 @section('tree-menu')
 <li><a href="View_customers"><i class="fa fa-circle-o"></i> Customers</a></li>
-<li><a href="#"><i class="fa fa-circle-o"></i> Contacts</a></li>
+<li><a href="View_contacts"><i class="fa fa-circle-o"></i> Contacts</a></li>
 <li><a href="#"><i class="fa fa-circle-o"></i> Activities</a></li>
 @stop()
 
@@ -18,7 +18,8 @@ customers
 <a href="Newcustomer" target="_blank">Add new customer</a>
 <br>
 <br>
-<form action="" method="">
+<form action="{{action('CustomerController@search_customers')}}" method="post">
+<input type="hidden" name="_token" value="<?php echo csrf_token();?>"/>
 <input type="text" name="searchbox" placeholder="Search here"/>
 <input type="submit" name="searchbtn" value="Search" class="btn btn-primary"/>
 </form>
@@ -40,9 +41,7 @@ customers
 	        <td><?php echo $row->website;?></td>
 	        <td><a href="<?php echo 'Customeredit/'.$row->id;?>" target="_blank">Edit</a></td>
 		</tr>			
-		<?php }
-			echo $data->render();
-		?>
+		<?php }?>
 
 </tbody>
 </table>

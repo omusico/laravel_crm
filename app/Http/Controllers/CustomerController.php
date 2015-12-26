@@ -2,21 +2,22 @@
 use DB;
 //to make transactions
 use Illuminate\Http\Request;
-//to create pagination
-use Illuminate\Pagination\LengthAwarePaginator;
 
 class CustomerController extends Controller {
 
 
 	public function index()
 	{
-		$result=DB::table('customer')->paginate(5);
+		$result=DB::table('customer')->get();
 		return view('customer.index')->with('data',$result);
 	}
 
-	public function search_customers()
+	public function search_customers(Request $request)
 	{
-
+		$post=$request->all();
+		$searchval=$post['searchbox'];
+		$result = DB::table('customer')->where('company_name', 'LIKE', '%' . $searchval . '%')->get();
+		return view('customer.index')->with('data',$result);
 	}
 
 	public function load_form_newcustomer()

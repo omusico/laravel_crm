@@ -23,6 +23,14 @@ Route::get('Newcustomer', 'CustomerController@load_form_newcustomer');
 
 Route::post('Add_customer', 'CustomerController@add_newcustomer');
 
+Route::post('Searchforcustomers', 'CustomerController@search_customers');
+
+Route::get('View_contacts', 'ContactsController@index');
+
+Route::get('Add_contact', 'ContactsController@addnew_viewload');
+
+Route::get('Contactedit/{id}', '');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

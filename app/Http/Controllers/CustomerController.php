@@ -53,13 +53,11 @@ class CustomerController extends Controller {
 			$result=DB::table('customer')->insert($data);
 			if ($result>0) 
 			{
-				
-    			/*$data['messagelines'] = "Customer added successfully....";
-				\Mail::send('emails.contact', $data, function ($message) use ($data) {
-				      $message->subject('Blog Contact Form: '.$data['name'])
-				              ->to(config('blog.contact_email'))
-				              ->replyTo($data['email']);
-				    });*/
+				$customername=$post['company_name'];
+				\Mail::send('emails.usercreated',['name'=>$customername],function($message)
+					{ 
+						$message->to('hello.sgdma@gmail.com', 'Hello sgdma')->subject('New customer created');
+					});
 
 				\Session::flash('message','Customer added successfully...');
 				return redirect('View_customers');	

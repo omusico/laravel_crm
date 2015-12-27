@@ -2,6 +2,8 @@
 use DB;
 //to make transactions
 use Illuminate\Http\Request;
+//send mails
+use Illuminate\Support\Facades\Mail;
 
 class CustomerController extends Controller {
 
@@ -51,6 +53,7 @@ class CustomerController extends Controller {
 			$result=DB::table('customer')->insert($data);
 			if ($result>0) 
 			{
+				
 				\Session::flash('message','Customer added successfully...');
 				return redirect('View_customers');	
 			}

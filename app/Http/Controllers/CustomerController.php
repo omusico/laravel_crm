@@ -54,6 +54,13 @@ class CustomerController extends Controller {
 			if ($result>0) 
 			{
 				
+    			$data['messagelines'] = "Customer added successfully....";
+				Mail::send('emails.contact', $data, function ($message) use ($data) {
+				      $message->subject('Blog Contact Form: '.$data['name'])
+				              ->to(config('blog.contact_email'))
+				              ->replyTo($data['email']);
+				    });
+
 				\Session::flash('message','Customer added successfully...');
 				return redirect('View_customers');	
 			}

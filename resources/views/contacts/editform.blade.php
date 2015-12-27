@@ -7,24 +7,33 @@
 @stop()
 
 @section('pagetitle')
-Edit customer
+Edit contact
 @stop()
 
 @section('breadcrubms_loc')
-edit customer
+edit contact
 @stop
 
 @section('content')
-<form action="" method="post">
-<label>Company Name:</label>
-<input type="text" name="company_name" class="form-control" value="<?php echo $data->company_name;?>"/>
-<label>Address:</label>
-<input type="text" name="address" class="form-control" value="<?php echo $data->address;?>"/>
-<label>Business registration number:</label>
-<input type="text" name="br_number" class="form-control" value="<?php echo $data->business_registration_number;?>"/>
-<label>Website:</label>
-<input type="text" name="website" class="form-control" value="<?php echo $data->website;?>"/>
+<form action="{{action('ContactsController@editcontact')}}" method="post">
+<input type="hidden" name="_token" value="<?php echo csrf_token();?>"/>
+<label>Customer Name:</label>
+<select name="customer_name">
+<?php 
+foreach ($customers_data as $row) {?>
+<option value="<?php echo $row->id?>"><?php echo $row->company_name?></option>	
+<?php }
+?>
+</select>
 </br>
-<input type="submit" name="save" class="btn btn-primary" value="Save"/>
+<input type="hidden" name="hiddenid" value="<?php echo $contacts_data->id;?>"/>
+<label>Contact Name:</label>
+<input type="text" name="contact_name" class="form-control" value="<?php echo $contacts_data->name?>"/>
+<label>Email:</label>
+<input type="text" name="email" class="form-control" value="<?php echo $contacts_data->email?>"/>
+<label>Contact Number:</label>
+<input type="text" name="contact_number" class="form-control" value="<?php echo $contacts_data->contact_number?>"/>
+</br>
+<input type="submit" name="save" class="btn btn-primary" value="Update"/>
 </form>
 @stop()

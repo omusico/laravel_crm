@@ -15,7 +15,9 @@ edit customer
 @stop
 
 @section('content')
-<form action="" method="post">
+<form action="{{action('CustomerController@updatecustomer')}}" method="post">
+<input type="hidden" name="_token" value="<?php echo csrf_token();?>"/>
+<input type="hidden" name="hiddenid" value="<?php echo $data->id;?>"/>
 <label>Company Name:</label>
 <input type="text" name="company_name" class="form-control" value="<?php echo $data->company_name;?>"/>
 <label>Address:</label>
@@ -25,6 +27,6 @@ edit customer
 <label>Website:</label>
 <input type="text" name="website" class="form-control" value="<?php echo $data->website;?>"/>
 </br>
-<input type="submit" name="save" class="btn btn-primary" value="Save"/>
+<input type="submit" name="save" class="btn btn-primary" value="Update"/>
 </form>
 @stop()

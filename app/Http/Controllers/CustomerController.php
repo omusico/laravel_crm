@@ -58,15 +58,28 @@ class CustomerController extends Controller {
 
 	}
 
-	public function editform($id)
+	public function editform_viewload($id)
 	{
 		$result=DB::table('customer')->where('id',$id)->first();
 		return view('customer.editform')->with('data',$result);
 	}
 
-	public function updatecustomer()
+	public function updatecustomer(Request $request)
 	{
-
+		$post=$request->all();
+		$id=$post['hiddenid'];
+		$data=array(
+					'company_name'=>$post['company_name'],
+					'address'=>$post['address'],
+					'business_registration_number'=>$post['br_number'],
+					'website'=>$post['website']
+				);
+			$result=DB::table('customer')->where('id',$id)->update($data);
+			if ($result>0) 
+			{
+				\Session::flash('message','Customer updated successfully...');
+				return redirect('View_customers');	
+			}
 	}
 
 }

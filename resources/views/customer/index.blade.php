@@ -3,7 +3,7 @@
 @section('tree-menu')
 <li><a href="View_customers"><i class="fa fa-circle-o"></i> Customers</a></li>
 <li><a href="View_contacts"><i class="fa fa-circle-o"></i> Contacts</a></li>
-<li><a href="#"><i class="fa fa-circle-o"></i> Activities</a></li>
+<li><a href="View_activities"><i class="fa fa-circle-o"></i> Activities</a></li>
 @stop()
 
 @section('pagetitle')

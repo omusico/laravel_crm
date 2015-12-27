@@ -55,7 +55,7 @@ class CustomerController extends Controller {
 			{
 				
     			/*$data['messagelines'] = "Customer added successfully....";
-				Mail::send('emails.contact', $data, function ($message) use ($data) {
+				\Mail::send('emails.contact', $data, function ($message) use ($data) {
 				      $message->subject('Blog Contact Form: '.$data['name'])
 				              ->to(config('blog.contact_email'))
 				              ->replyTo($data['email']);

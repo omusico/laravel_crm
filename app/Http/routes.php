@@ -47,6 +47,8 @@ Route::post('Newactivity', 'ActivitiesController@addnewactivity');
 
 Route::get('Edit_activityview/{id}', 'ActivitiesController@editactivity_viewload');
 
+Route::post('Edit_activity', 'ActivitiesController@editactivity');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

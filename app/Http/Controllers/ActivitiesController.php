@@ -55,8 +55,30 @@ class ActivitiesController extends Controller {
 
 	public function editactivity_viewload($id)
 	{
-		$result=DB::table('activities')->where('id',$id)->get();
-		return view('activities.index')->with('data',$result);
+		$result1=DB::table('customer')->get();
+		$result2=DB::table('activities')->where('id',$id)->first();
+		$result3=DB::table('customer')->where('id',$id)->first();
+		return view('activities.editform')->with('customer_data',$result1)->with('activity_data',$result2)->with('currentcustomer',$result3);
+	}
+
+	public function editactivity(Request $request)
+	{
+		$post=$request->all();
+		$id=$post['hiddenid'];
+		$date=$post['year'].'-'.$post['month'].'-'.$post['date'];
+		$data=array(
+					'customer_id'=>$post['customer_name'],
+					'date'=>$date,
+					'activity_type'=>$post['activity_type'],
+					'outcome'=>$post['outcome'],
+					'sales_person_name'=>$post['sales_person_name']
+				);
+			$result=DB::table('activities')->where('id',$id)->update($data);
+			if ($result>0) 
+			{
+				\Session::flash('message','Activity updated successfully...');
+				return redirect('View_activities');	
+			}
 	}
 
 }

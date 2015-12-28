@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 
 class ContactsController extends Controller {
 
-
+	//Load contacts page
 	public function index()
 	{
 		$result1=DB::table('contacts')->get();
@@ -13,6 +13,7 @@ class ContactsController extends Controller {
 		return view('contacts.index')->with('contacts_data',$result1)->with('customers_data',$result2);
 	}
 
+	//Add new contact view load
 	public function addnew_viewload()
 	{
 		$result=DB::table('customer')->get();
@@ -20,6 +21,7 @@ class ContactsController extends Controller {
 
 	}
 
+	//Adding a new contact with validations
 	public function add_newcontact(Request $request)
 	{
 		$post=$request->all();
@@ -51,6 +53,7 @@ class ContactsController extends Controller {
 		}
 	}
 
+	//Filter contacts by customer name
 	public function filtercontacts(Request $request)
 	{
 		$post=$request->all();
@@ -60,6 +63,7 @@ class ContactsController extends Controller {
 		return view('contacts.index')->with('contacts_data',$result1)->with('customers_data',$result2);
 	}
 
+	//Edit contact view load
 	public function editcontact_viewload($id)
 	{
 		$result1=DB::table('customer')->get();
@@ -67,6 +71,7 @@ class ContactsController extends Controller {
 		return view('contacts.editform')->with('customers_data',$result1)->with('contacts_data',$result2);
 	}
 
+	//Edit contact with user inputs
 	public function editcontact(Request $request)
 	{
 		$post=$request->all();

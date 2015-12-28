@@ -7,13 +7,14 @@ use Illuminate\Support\Facades\Mail;
 
 class CustomerController extends Controller {
 
-
+	//Load index page with customers
 	public function index()
 	{
 		$result=DB::table('customer')->get();
 		return view('customer.index')->with('data',$result);
 	}
 
+	//Search customers
 	public function search_customers(Request $request)
 	{
 		$post=$request->all();
@@ -22,11 +23,13 @@ class CustomerController extends Controller {
 		return view('customer.index')->with('data',$result);
 	}
 
+	//Add new customer view load
 	public function load_form_newcustomer()
 	{
 		return view('customer.newcustomerform');
 	}
 
+	//Adding a new customer to the database and validation
 	public function add_newcustomer(Request $request)
 	{
 		$post=$request->all();
@@ -66,12 +69,14 @@ class CustomerController extends Controller {
 
 	}
 
+	//Edit a customer view load
 	public function editform_viewload($id)
 	{
 		$result=DB::table('customer')->where('id',$id)->first();
 		return view('customer.editform')->with('data',$result);
 	}
 
+	//Edit a customer with user inputs
 	public function updatecustomer(Request $request)
 	{
 		$post=$request->all();

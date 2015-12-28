@@ -5,19 +5,21 @@ use Illuminate\Http\Request;
 
 class ActivitiesController extends Controller {
 
-
+	//Activities view load
 	public function index()
 	{
 		$result=DB::table('activities')->get();
 		return view('activities.index')->with('data',$result);
 	}
 
+	//Add new activity view load
 	public function addnewactivity_viewload()
 	{
 		$result=DB::table('customer')->get();
 		return view('activities.newactivityform')->with('data',$result);
 	}
 
+	//Adding a new activity with validations
 	public function addnewactivity(Request $request)
 	{
 		$post=$request->all();
@@ -53,6 +55,7 @@ class ActivitiesController extends Controller {
 		}
 	}
 
+	//Editing an activity view load
 	public function editactivity_viewload($id)
 	{
 		$result1=DB::table('customer')->get();
@@ -61,6 +64,7 @@ class ActivitiesController extends Controller {
 		return view('activities.editform')->with('customer_data',$result1)->with('activity_data',$result2)->with('currentcustomer',$result3);
 	}
 
+	//Edit an activity with user inputs
 	public function editactivity(Request $request)
 	{
 		$post=$request->all();

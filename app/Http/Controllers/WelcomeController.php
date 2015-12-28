@@ -3,7 +3,7 @@ use DB;
 
 class WelcomeController extends Controller {
 
-
+	//Load index page with customers
 	public function index()
 	{
 		$result=DB::table('customer')->get();

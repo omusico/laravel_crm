@@ -59,7 +59,7 @@ class CustomerController extends Controller {
 				$customername=$post['company_name'];
 				\Mail::send('emails.usercreated',['name'=>$customername],function($message)
 					{ 
-						$message->to('hello.sgdma@gmail.com', 'Hello sgdma')->subject('New customer created');
+						$message->to('buddhieash@gmail.com', 'Hello....')->subject('New customer created');
 					});
 
 				\Session::flash('message','Customer added successfully...');
